@@ -1,7 +1,7 @@
 === Basic Theme ===
 Contributors: robinwpdeveloper
 Tested up to: 6.0
-Stable tag: 1.0
+Stable tag: 1.1.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Tags: blog, one-column, two-columns, right-sidebar, custom-header, custom-menu, editor-style, featured-images, footer-widgets, microformats, post-formats, rtl-language-support, sticky-post, translation-ready, accessibility-ready, block-patterns
