@@ -42,6 +42,12 @@ Genericons icon font, Copyright 2013-2017 Automattic.com
 License: GNU GPL, Version 2 (or later)
 Source: http://www.genericons.com
 
+This theme bundles the following third-party resources:
+Source Serif Font
+Copyright 2014-2021 Adobe (http://www.adobe.com/)
+License: SIL Open Font License, 1.1, https://opensource.org/licenses/OFL-1.1
+Source: https://github.com/adobe-fonts/source-serif
+
 Images
 Cylinder Interior: https://www.flickr.com/photos/nasacommons/14052998066/in/album-72157644439092941/. Rick Guidice, NASA Ames Research Center.
 Bernal Cutaway: https://www.flickr.com/photos/nasacommons/14052996976/in/album-72157644439092941/ Don Davis, NASA Ames Research Center.

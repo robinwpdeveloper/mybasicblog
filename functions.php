@@ -79,7 +79,7 @@ function mybasicblog_setup() {
 	 * This theme styles the visual editor to resemble the theme style,
 	 * specifically font, colors, icons, and column width.
 	 */
-	add_editor_style( array( 'css/editor-style.css', 'genericons/genericons.css', mybasicblog_fonts_url() ) );
+	add_editor_style( array( 'css/editor-style.css' ) );
 
 	// Load regular editor styles into the new block-based editor.
 	add_theme_support( 'editor-styles' );
@@ -250,42 +250,42 @@ add_action( 'after_setup_theme', 'mybasicblog_setup' );
  *
  * @return string Font stylesheet or empty string if disabled.
  */
-function mybasicblog_fonts_url() {
-	$fonts_url = '';
+// function mybasicblog_fonts_url() {
+// 	$fonts_url = '';
 
-	/*
-	 * translators: If there are characters in your language that are not supported
-	 * by Source Sans Pro, translate this to 'off'. Do not translate into your own language.
-	 */
-	$source_sans_pro = _x( 'on', 'Source Sans Pro font: on or off', 'mybasicblog' );
+// 	/*
+// 	 * translators: If there are characters in your language that are not supported
+// 	 * by Source Sans Pro, translate this to 'off'. Do not translate into your own language.
+// 	 */
+// 	$source_sans_pro = _x( 'on', 'Source Sans Pro font: on or off', 'mybasicblog' );
 
-	/*
-	 * translators: If there are characters in your language that are not supported
-	 * by Bitter, translate this to 'off'. Do not translate into your own language.
-	 */
-	$bitter = _x( 'on', 'Bitter font: on or off', 'mybasicblog' );
+// 	/*
+// 	 * translators: If there are characters in your language that are not supported
+// 	 * by Bitter, translate this to 'off'. Do not translate into your own language.
+// 	 */
+// 	$bitter = _x( 'on', 'Bitter font: on or off', 'mybasicblog' );
 
-	if ( 'off' !== $source_sans_pro || 'off' !== $bitter ) {
-		$font_families = array();
+// 	if ( 'off' !== $source_sans_pro || 'off' !== $bitter ) {
+// 		$font_families = array();
 
-		if ( 'off' !== $source_sans_pro ) {
-			$font_families[] = 'Source Sans Pro:300,400,700,300italic,400italic,700italic';
-		}
+// 		if ( 'off' !== $source_sans_pro ) {
+// 			$font_families[] = 'Source Sans Pro:300,400,700,300italic,400italic,700italic';
+// 		}
 
-		if ( 'off' !== $bitter ) {
-			$font_families[] = 'Bitter:400,700';
-		}
+// 		if ( 'off' !== $bitter ) {
+// 			$font_families[] = 'Bitter:400,700';
+// 		}
 
-		$query_args = array(
-			'family'  => urlencode( implode( '|', $font_families ) ),
-			'subset'  => urlencode( 'latin,latin-ext' ),
-			'display' => urlencode( 'fallback' ),
-		);
-		$fonts_url  = add_query_arg( $query_args, 'https://fonts.googleapis.com/css' );
-	}
+// 		$query_args = array(
+// 			'family'  => urlencode( implode( '|', $font_families ) ),
+// 			'subset'  => urlencode( 'latin,latin-ext' ),
+// 			'display' => urlencode( 'fallback' ),
+// 		);
+// 		$fonts_url  = add_query_arg( $query_args, 'https://fonts.googleapis.com/css' );
+// 	}
 
-	return $fonts_url;
-}
+// 	return $fonts_url;
+// }
 
 /**
  * Enqueue scripts and styles for the front end.
@@ -310,7 +310,16 @@ function mybasicblog_scripts_styles() {
 	// wp_enqueue_script( 'mybasicblog-script', get_template_directory_uri() . '/js/functions.js', array( 'jquery' ), '20171218', true );
 
 	// Add Source Sans Pro and Bitter fonts, used in the main stylesheet.
-	wp_enqueue_style( 'mybasicblog-fonts', mybasicblog_fonts_url(), array(), null );
+	// wp_enqueue_style( 'mybasicblog-fonts', mybasicblog_fonts_url(), array(), null );
+
+	add_action( 'wp_enqueue_scripts', function() {
+		wp_enqueue_webfont(
+			// The handle
+			'mybasicblog-fonts',
+			// URL to the webfont CSS - can use any public API.
+			'https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500;600&display=swap', 
+		);
+	} );
 
 	// Add Genericons font, used in the main stylesheet.
 	// wp_enqueue_style( 'genericons', get_template_directory_uri() . '/genericons/genericons.css', array(), '3.0.3' );
@@ -361,7 +370,7 @@ function mybasicblog_block_editor_styles() {
 	// Block styles.
 	wp_enqueue_style( 'mybasicblog-block-editor-style', get_template_directory_uri() . '/css/editor-blocks.css', array(), '20201208' );
 	// Add custom fonts.
-	wp_enqueue_style( 'mybasicblog-fonts', mybasicblog_fonts_url(), array(), null );
+	// wp_enqueue_style( 'mybasicblog-fonts', mybasicblog_fonts_url(), array(), null );
 }
 add_action( 'enqueue_block_editor_assets', 'mybasicblog_block_editor_styles' );
 
