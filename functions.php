@@ -307,23 +307,23 @@ function mybasicblog_scripts_styles() {
 	}
 
 	// Loads JavaScript file with functionality specific to Basic Theme.
-	wp_enqueue_script( 'mybasicblog-script', get_template_directory_uri() . '/js/functions.js', array( 'jquery' ), '20171218', true );
+	// wp_enqueue_script( 'mybasicblog-script', get_template_directory_uri() . '/js/functions.js', array( 'jquery' ), '20171218', true );
 
 	// Add Source Sans Pro and Bitter fonts, used in the main stylesheet.
 	wp_enqueue_style( 'mybasicblog-fonts', mybasicblog_fonts_url(), array(), null );
 
 	// Add Genericons font, used in the main stylesheet.
-	wp_enqueue_style( 'genericons', get_template_directory_uri() . '/genericons/genericons.css', array(), '3.0.3' );
+	// wp_enqueue_style( 'genericons', get_template_directory_uri() . '/genericons/genericons.css', array(), '3.0.3' );
 
 	// Loads our main stylesheet.
 	wp_enqueue_style( 'mybasicblog-style', get_stylesheet_uri(), array(), '20220524' );
 
 	// Theme block stylesheet.
-	wp_enqueue_style( 'mybasicblog-block-style', get_template_directory_uri() . '/css/blocks.css', array( 'mybasicblog-style' ), '20190102' );
+	// wp_enqueue_style( 'mybasicblog-block-style', get_template_directory_uri() . '/css/blocks.css', array( 'mybasicblog-style' ), '20190102' );
 
 	// Loads the Internet Explorer specific stylesheet.
-	wp_enqueue_style( 'mybasicblog-ie', get_template_directory_uri() . '/css/ie.css', array( 'mybasicblog-style' ), '20150214' );
-	wp_style_add_data( 'mybasicblog-ie', 'conditional', 'lt IE 9' );
+	// wp_enqueue_style( 'mybasicblog-ie', get_template_directory_uri() . '/css/ie.css', array( 'mybasicblog-style' ), '20150214' );
+	// wp_style_add_data( 'mybasicblog-ie', 'conditional', 'lt IE 9' );
 }
 add_action( 'wp_enqueue_scripts', 'mybasicblog_scripts_styles' );
 
